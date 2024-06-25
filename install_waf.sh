@@ -3,7 +3,7 @@ yum install -y epel-release pcre-devel openssl-devel gcc cmake make  lua-devel  
 tar zxvf openresty-1.21.4.3.tar.gz
 tar zxvf libmaxminddb-1.6.0.tar.gz
 cd openresty-1.21.4.3
-./configure --prefix=/opt/jxwaf --with-http_v2_module --with-http_stub_status_module --with-threads && gmake && gmake install
+./configure --prefix=/opt/jxwaf --with-http_v2_module --with-http_stub_status_module --with-threads && gmake -j(nproc) && gmake install -j(nproc)
 mv /opt/jxwaf/nginx/conf/nginx.conf  /opt/jxwaf/nginx/conf/nginx.conf.bak
 cp ../conf/nginx.conf /opt/jxwaf/nginx/conf/
 cp ../conf/full_chain.pem /opt/jxwaf/nginx/conf/
